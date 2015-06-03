@@ -6,7 +6,6 @@ package com.dilaj.util;
  */
 public interface ServiceConstant {
 	String FILE_NAME = "file";
-	String FILE_EXETENSION = "ext";
 	String AT_RID = "@rid";
 	String AT_CLASS = "@class";
 	String BINARY_FIELD = "bField";
