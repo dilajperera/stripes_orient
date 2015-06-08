@@ -16,53 +16,34 @@ import com.orientechnologies.orient.core.config.OStorageConfiguration;
 import com.orientechnologies.orient.core.storage.OStorage;
 
 public class BinaryDataExecutorTest {
-	//private static BinaryDataExecutor binaryDataExecutor = new BinaryDataExecutor();
+	private static BinaryDataExecutor binaryDataExecutor = new BinaryDataExecutor();
 
 	public static void main(String[] args) {
-	//uploadFile();
-		//downloadFile();
-		System.out.println("::::::::::::::::;");
-
-		try {
-			System.out.println(">>>>>>>>>>>>>");
-			//OServerAdmin s = new OServerAdmin("https://node98180-env-6826425.j.layershift.co.uk");
-			
-			
-		
-			OServerAdmin s = new OServerAdmin("remote:node98180-env-6826425.j.layershift.co.uk/testdb");
-			System.out.println("::::::::;; "+s.existsDatabase());
-		//s.connect("root", "AMGqcy91190");
-		//	System.out.println(":::::::: "+s.isConnected());
-			//s.listDatabases();
-			//s.connect("root", "AMGqcy91190");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	
+		//uploadFile();
+		downloadFile();
 	}
 	
-	/*private static void uploadFile(){
+	private static void uploadFile(){
 		
 		try {
-			String metaData = "{'@class' : 'OData', 'bField': 'b_data', 'file':'adaraye_unusuma_laga_2.mp3'}";
-			InputStream inputStream = new FileInputStream("C:/Users/Dilaj/Desktop/adaraye_unusuma_laga_2.mp3");
+			String metaData = "{'@class' : 'OData', 'bField': 'b_data', 'file':'Insurance Scheme FY15.pdf'}";
+			InputStream inputStream = new FileInputStream("C:/Users/dperera/Desktop/Insurance Scheme FY15.pdf");
 			binaryDataExecutor.uploadFile(metaData, inputStream);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
-/*	private static void downloadFile(){
-		String data = "{'@rid':'#16:36','bField': 'b_data', 'path': 'C:/Users/Dilaj/Desktop/testDownload'}";
+	private static void downloadFile(){
+		String data = "{'@rid':'#35:19','bField': 'b_data', 'path': 'C:/Users/dperera/Desktop/testDownload'}";
 		InputStream inputStream = (InputStream) binaryDataExecutor.readFile(data).get(ServiceConstant.INPUT_STREAM);
-		File file = new File("C:/Users/Dilaj/Desktop/testDownload/abc.mp3");
+		File file = new File("C:/Users/dperera/Desktop/testDownload/stripes.pdf");
 		try {
 			FileUtils.copyInputStreamToFile(inputStream,file);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-	}*/
+	}
 
 }

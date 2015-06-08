@@ -55,12 +55,13 @@ public class UploadActionBean extends BaseActionBean {
 	 */
 	private StreamingResolution uploadFile(){
 		try {
-			InputStream inputStream = fileBean.getInputStream();
-			HashMap<String,Object> metaData = fromJson(data);
-			metaData.put(ServiceConstant.CONTENT_TYPE, fileBean.getContentType());
-			LOGGER.info("File : {}  content-type : {} is ready to upload",fileBean.getFileName(),fileBean.getContentType());
-			LOGGER.info("MetaData : {}",toJson(metaData));
-			String result = binaryDataExecutor.uploadFile(toJson(metaData), inputStream);
+			
+			HashMap<String, Object> metaData = fromJson(data);
+			metaData.put(ServiceConstant.CONTENT_TYPE,fileBean.getContentType());
+			data = toJson(metaData);
+			LOGGER.info("MetaData : {}",data);
+			
+			String result = binaryDataExecutor.uploadFile(data, fileBean.getInputStream());
 			return new  StreamingResolution("text", new StringReader(result));
 		} catch (IOException e) {
 			e.printStackTrace();

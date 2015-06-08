@@ -9,6 +9,17 @@
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
+	<dependency>
+	<groupId>com.google.guava</groupId>
+	<artifactId>guava</artifactId>
+	<version>r05</version>
+</dependency>
+	
+		<dependency>
+	 <groupId>org.apache.commons</groupId>
+  <artifactId>commons-lang3</artifactId>
+  <version>3.4</version>
+	</dependency>	
 		<dependency>
 			<groupId>net.sourceforge.stripes</groupId>
 			<artifactId>stripes</artifactId>
@@ -59,6 +70,7 @@
 			<artifactId>logback-core</artifactId>
 			<version>1.1.2</version>
 		</dependency>
+		
 	</dependencies>
 	<build>
 		<finalName>stripes</finalName>

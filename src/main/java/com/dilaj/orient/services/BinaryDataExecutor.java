@@ -37,7 +37,7 @@ import com.orientechnologies.orient.core.record.impl.ORecordBytes;
 public class BinaryDataExecutor {
 
 
-	private ODatabaseDocumentTx database = new ODatabaseDocumentTx("remote:127.0.0.1/testdb").open("admin", "admin");
+	private ODatabaseDocumentTx database = new ODatabaseDocumentTx("remote:127.0.0.1/SampleServices").open("admin", "admin");
 	//private ODatabaseDocumentTx database = new ODatabaseDocumentTx("remote:node98200-dilaj.j.layershift.co.uk/testdb").open("root", "TVRvaa93427");
 	private static Logger LOGGER = LoggerFactory.getLogger(BinaryDataExecutor.class);
 
@@ -154,7 +154,7 @@ public class BinaryDataExecutor {
 					JsonNode metaData = toJson(new String(metaDataBytes.toStream()));
 					result.put(ServiceConstant.CONTENT_TYPE, metaData.get(ServiceConstant.CONTENT_TYPE).asText());
 					result.put(ServiceConstant.FILE_NAME, metaData.get(ServiceConstant.FILE_NAME).asText());
-					LOGGER.info("File : {} is reading from the db....",metaData.get(ServiceConstant.FILE_NAME).asText());
+					LOGGER.info("File : {} Metadata ; {} is reading from the db....",metaData.get(ServiceConstant.FILE_NAME).asText(),metaData);
 					 
 					try {
 						File file = File.createTempFile("speed", ".tmp");
@@ -165,6 +165,7 @@ public class BinaryDataExecutor {
 							chunk.unload();
 							LOGGER.info("Data chunk {} is reading from the db. ",chunk.getIdentity());
 						}
+						out.flush();
 						result.put(ServiceConstant.INPUT_STREAM, new FileInputStream(file));
 						LOGGER.info("File : {} is successfully read from the db....",metaData.get(ServiceConstant.FILE_NAME).asText());
 						file.delete();
@@ -180,5 +181,7 @@ public class BinaryDataExecutor {
 		
 		return null;
 	}
+	
+	
 	
 }
